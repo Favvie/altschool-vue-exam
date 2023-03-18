@@ -30,39 +30,7 @@
         
         
     </div>
-        
-        
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <h1>loginview</h1>
-    <form action="" @submit.prevent="onLogin()">
-    <label for="">Username</label>
-    <input type="text" v-model="username" >
-    <div v-if="errors.username">{{ errors.username }}</div>
-    <br> <br>
-    <label for="">Password</label>
-    <input type="text" v-model="password" >
-    <div v-if="errors.password">{{ errors.password }}</div>
-    <br><br>
-    <button type="submit">Login</button>
-    </form>
-    <div>Dont have an account yet? <router-link to="/signup">Sign Up</router-link></div> -->
 </template>
 
 <script>
@@ -90,29 +58,34 @@ export default {
                 this.errors = {}
 
                 // login logic
-                let lsUsers = localStorage.users;
-                lsUsers = JSON.parse(lsUsers)
-                let userIndex = lsUsers.findIndex(
-                    user => user.username === credentials.username
-                )
-                if (userIndex > -1) {
-                    let passwordIndex = lsUsers.findIndex(
-                        user => user.password === credentials.password)
+                if (localStorage.users) {
 
-                    if (passwordIndex > -1) {
-                        let activeUser = JSON.stringify(lsUsers[userIndex])
-                        localStorage.setItem('activeUser', activeUser)
-                        
-                        this.$router.push('/products')
-                        window.location.reload()
-                    } else {
-                        this.errors.password = 'Incorrect password!'
-                    }
-                } else {
-                    this.errors.username = 'Username does not exist!'
+                    let lsUsers = localStorage.users;
+                    lsUsers = JSON.parse(lsUsers)
+                    let userIndex = lsUsers.findIndex(
+                        user => user.username === credentials.username
+                        )
+                        if (userIndex > -1) {
+                            let passwordIndex = lsUsers.findIndex(
+                                user => user.password === credentials.password)
+                                
+                                if (passwordIndex > -1) {
+                                    let activeUser = JSON.stringify(lsUsers[userIndex])
+                                    localStorage.setItem('activeUser', activeUser)
+                                    
+                                    this.$router.push('/products')
+                                    window.location.reload()
+                                } else {
+                                    this.errors.password = 'Incorrect password!'
+                                }
+
+                        } else {
+                                this.errors.username = 'Username does not exist!'
+                            }
+                            
+                            
+
                 }
-
-
             }
 
         }
