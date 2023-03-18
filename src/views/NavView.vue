@@ -21,6 +21,10 @@
                 <router-link to="/" class="text-xl hover:text-indigo-500">Home</router-link>
             </li>
             
+            <li class="md:mx-4 md:my-0 my-6" v-if="user.username">
+                <router-link to="/products" class="text-xl hover:text-indigo-500">Prodcuts</router-link>
+            </li>
+            
             <ButtonComponent v-if="!user.username">
                  <router-link to="/signup" class="text-xl hover:text-white-500">Sign Up</router-link>
              </ButtonComponent>
