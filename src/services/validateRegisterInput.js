@@ -5,12 +5,16 @@ const validateRegisterInput = (data) => {
 
   const { username, email, password, password2 } = data;
 
-  let lsUsers = localStorage.users;
-  lsUsers = JSON.parse(lsUsers);
-  let userIndex = lsUsers.findIndex((user) => user.username === username);
-  if (userIndex > -1) {
-    errors.username = "Username is already in use";
+  if (localStorage.users) {
+    let lsUsers = localStorage.users;
+    lsUsers = JSON.parse(lsUsers);
+    let userIndex = lsUsers.findIndex((user) => user.username === username);
+
+    if (userIndex > -1) {
+      errors.username = "Username is already in use";
+    }
   }
+
   if (validator.isEmpty(username)) {
     // username validation
     errors.username = "Username field is required.";
@@ -33,7 +37,7 @@ const validateRegisterInput = (data) => {
   if (!validator.equals(password, password2)) {
     errors.password2 = "Password should match!";
   }
-
+ 
   if (validator.isEmpty(password2)) {
     errors.password2 = "Confirm password field is required.";
   }
