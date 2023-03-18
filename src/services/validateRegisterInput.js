@@ -5,9 +5,11 @@ const validateRegisterInput = (data) => {
 
   const { username, email, password, password2 } = data;
 
-  if (localStorage.users) {
-    let lsUsers = localStorage.users;
-    lsUsers = JSON.parse(lsUsers);
+  // if (localStorage.users) {
+  if (this.$store.state.auth.users) {
+    // let lsUsers = localStorage.users;
+    let lsUsers = this.$store.state.auth.users;
+    // lsUsers = JSON.parse(lsUsers);
     let userIndex = lsUsers.findIndex((user) => user.username === username);
 
     if (userIndex > -1) {
@@ -37,7 +39,7 @@ const validateRegisterInput = (data) => {
   if (!validator.equals(password, password2)) {
     errors.password2 = "Password should match!";
   }
- 
+
   if (validator.isEmpty(password2)) {
     errors.password2 = "Confirm password field is required.";
   }

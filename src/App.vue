@@ -18,6 +18,10 @@ export default {
   components: {
     NavView
   },
+  mounted() {
+    this.$store.commit("auth/GET_USERS")
+  }
+
 
 }
 </script>

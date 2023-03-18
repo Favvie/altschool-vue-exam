@@ -58,10 +58,11 @@ export default {
                 this.errors = {}
 
                 // login logic
-                if (localStorage.users) {
-
-                    let lsUsers = localStorage.users;
-                    lsUsers = JSON.parse(lsUsers)
+                // if (localStorage.users) {
+                    if(this.$store.state.auth.users) {
+                        let lsUsers = this.$store.state.auth.users
+                    // let lsUsers = localStorage.users;
+                    // lsUsers = JSON.parse(lsUsers)
                     let userIndex = lsUsers.findIndex(
                         user => user.username === credentials.username
                         )
@@ -84,8 +85,8 @@ export default {
                             }
                             
                             
-
-                }
+                        
+                        }
             }
 
         }
