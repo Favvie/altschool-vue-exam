@@ -69,6 +69,22 @@ export default {
                 this.errors = errors
             } else {
                 this.errors = {}
+
+
+
+                // if (localStorage.users) {
+                if (this.$store.state.auth.users) {
+                    // let lsUsers = localStorage.users;
+                    let lsUsers = this.$store.state.auth.users;
+                    // lsUsers = JSON.parse(lsUsers);
+                    let userIndex = lsUsers.findIndex((user) => user.username === this.username);
+
+                    if (userIndex > -1) {
+                    this.errors.username = "Username is already in use";
+                    }
+                    console.log(this)
+                }
+
                 //store user in vuex
                 this.setUser(user)
 

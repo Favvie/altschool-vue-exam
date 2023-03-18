@@ -5,18 +5,6 @@ const validateRegisterInput = (data) => {
 
   const { username, email, password, password2 } = data;
 
-  // if (localStorage.users) {
-  if (this.$store.state.auth.users) {
-    // let lsUsers = localStorage.users;
-    let lsUsers = this.$store.state.auth.users;
-    // lsUsers = JSON.parse(lsUsers);
-    let userIndex = lsUsers.findIndex((user) => user.username === username);
-
-    if (userIndex > -1) {
-      errors.username = "Username is already in use";
-    }
-  }
-
   if (validator.isEmpty(username)) {
     // username validation
     errors.username = "Username field is required.";
