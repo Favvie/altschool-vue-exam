@@ -22,7 +22,7 @@
             </li>
             
             <li class="md:mx-4 md:my-0 my-6" v-if="user.username">
-                <router-link to="/products" class="text-xl hover:text-indigo-500">Prodcuts</router-link>
+                <router-link to="/products" class="text-xl hover:text-indigo-500">Products</router-link>
             </li>
             
             <ButtonComponent v-if="!user.username">
