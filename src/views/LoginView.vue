@@ -72,7 +72,8 @@ export default {
                                 
                                 if (passwordIndex > -1) {
                                     let activeUser = JSON.stringify(lsUsers[userIndex])
-                                    localStorage.setItem('activeUser', activeUser)
+                                    // localStorage.setItem('activeUser', activeUser)
+                                    this.$store.commit('auth/SET_ACTIVE_USER', activeUser)
                                     
                                     this.$router.push('/products')
                                     window.location.reload()

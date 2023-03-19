@@ -26,6 +26,12 @@ export default {
 
       localStorage.setItem("users", JSON.stringify(state.users));
     },
+
+    SET_ACTIVE_USER(state, user) {
+      // let activeUser = JSON.stringify(user);
+      state.user = user;
+      localStorage.setItem("activeUser", user);
+    },
   },
   actions: {
     setUser({ commit }, payload) {

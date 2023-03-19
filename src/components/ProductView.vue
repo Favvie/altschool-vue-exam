@@ -1,10 +1,18 @@
 <template>
-  <div>
-    <h1>product page</h1>
-    <h2>{{ item.title }}</h2>
-    <p>{{ item.description }}</p>
-    <img :src=item.thumbnail >
-    <!-- {{ item }} -->
+  <div class="w-full h-screen">
+    <div class="flex items-center justify-center w-full h-screen flex-col md:flex-row my-10">
+      <div class="mx-3">
+        
+        <h1 class="font-bold text-4xl pb-4">{{ item.title }}</h1>
+        <p class="pr-4 pb-4">{{ item.description }}</p>
+        <p class="font-bold">${{ item.price }}</p>
+        <button class="mt-5 bg-indigo-500 rounded p-3 text-white">Back to Products</button>
+      </div>
+      <div class="w-[90%] mt-10 md:mt-0 md:w-auto ">
+        
+        <img :src=item.thumbnail >
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,9 +23,9 @@ import { useRoute } from 'vue-router';
 
 const store = useStore();
 const route = useRoute();
-const item = computed(() => store.state.item);
+const item = computed(() => store.state.products.item);
 
-onMounted(() => store.dispatch('fetchItem', parseInt(route.params.id)));
+onMounted(() => store.dispatch('products/fetchItem', parseInt(route.params.id)));
 
 
 </script>

@@ -31,22 +31,10 @@
 
             <ButtonComponent v-if="user.username">
                  <router-link to="/login" class="text-xl" v-if="user.username" @click.prevent="logout()">Logout</router-link>
-                <!-- <a href="" v-if="user.username" @click.prevent="logout()"> Logout</a>  -->
              </ButtonComponent>
         </ul>
 
     </div>
-  
-  <!-- <nav class="nav flex justify-between max-w-5xl m-auto p-5">
-    <div>Logo</div>
-    <div class="nav-links flex gap-4">
-    <router-link to="/signup" v-if="!user.username">Sign Up</router-link> 
-    <router-link to="/login" v-if="!user.username">Login</router-link> 
-    <a href="" v-if="user.username" @click.prevent="logout()">hello, {{user.username}} Logout</a> 
-
-    </div>
-  </nav> -->
-
 </template>
  
 <style scoped>
@@ -66,22 +54,21 @@ export default {
         }
     },
   mounted() {
-    // this.$store.commit('initializeStore')
     if (localStorage.activeUser) {
       let activeUser = localStorage.activeUser
         this.user = JSON.parse(activeUser)
-    }
+      }
+    
   },
   methods: {
     logout() {
-      // this.$store.commit('logout')
       localStorage.removeItem('activeUser')
       this.$router.push('/login')
       window.location.reload()
 
     }, 
-      MenuOpen() {
-        this.open = !this.open
+    MenuOpen() {
+      this.open = !this.open
     }
   },  
   
