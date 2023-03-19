@@ -1,5 +1,10 @@
 # altschool-vue-exam
 
+# Live site
+```
+https://favour-abangwu-altschool-vue-exam.vercel.app/
+```
+
 ## Project setup
 ```
 npm install
