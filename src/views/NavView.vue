@@ -30,8 +30,8 @@
              </ButtonComponent>
 
             <ButtonComponent v-if="user.username">
-                 <!-- <router-link to="/logout" class="text-xl hover:text-indigo-500">Logout</router-link> -->
-                <a href="" v-if="user.username" @click.prevent="logout()"> Logout</a> 
+                 <router-link to="/login" class="text-xl" v-if="user.username" @click.prevent="logout()">Logout</router-link>
+                <!-- <a href="" v-if="user.username" @click.prevent="logout()"> Logout</a>  -->
              </ButtonComponent>
         </ul>
 
