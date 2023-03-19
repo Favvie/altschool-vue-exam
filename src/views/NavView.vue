@@ -77,7 +77,7 @@ export default {
       // this.$store.commit('logout')
       localStorage.removeItem('activeUser')
       this.$router.push('/login')
-      // window.location.reload()
+      window.location.reload()
 
     }, 
       MenuOpen() {

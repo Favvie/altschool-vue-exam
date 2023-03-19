@@ -75,7 +75,7 @@ export default {
                                     localStorage.setItem('activeUser', activeUser)
                                     
                                     this.$router.push('/products')
-                                    // window.location.reload()
+                                    window.location.reload()
                                 } else {
                                     this.errors.password = 'Incorrect password!'
                                 }

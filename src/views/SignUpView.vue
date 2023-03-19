@@ -82,7 +82,6 @@ export default {
                     if (userIndex > -1) {
                     this.errors.username = "Username is already in use";
                     }
-                    console.log(this)
                 }
 
                 //store user in vuex
