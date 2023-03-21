@@ -8,6 +8,7 @@ export default {
     return {
       items: [],
       item: {},
+      isLoading: true,
     };
   },
   mutations,

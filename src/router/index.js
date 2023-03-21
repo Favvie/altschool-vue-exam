@@ -37,6 +37,7 @@ const routes = [
     path: "/signup",
     name: "signup",
     component: SignUpView,
+    beforeEnter: guest,
   },
   {
     path: "/products",
